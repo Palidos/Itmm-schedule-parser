@@ -50,9 +50,10 @@ function getLastDate() {
 }
 
 
-  const lastUpdateDate = getLastDate();
 app.locals.fn = function checkSchedule() {
+  const lastUpdateDate = getLastDate();
   getCurrentDate().then((info)=> {
+    app.locals.info = info;
     if(info.date == lastUpdateDate) {
       console.log("Old schedule");
       app.locals.isNew = false;
@@ -61,7 +62,6 @@ app.locals.fn = function checkSchedule() {
       app.locals.isNew = true;
       updateScheduleFile(info.date);
     }
-    app.locals.link = info.link;
   })
   .catch(err => {
     if (err)
@@ -72,6 +72,6 @@ app.locals.fn = function checkSchedule() {
 app.get('/', (req, res) => {
     res.render('index');
 });
-//checkSchedule();
+
 app.locals.fn();
 

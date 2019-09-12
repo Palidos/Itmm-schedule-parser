@@ -21,9 +21,10 @@
         <% } else { %>
         <h3 class="text-center ">Расписание сегодняшнее</h3>
         <% } %>
+        <h3 class="text-center "><%= info.date %></h3>
 
-        <a class="btn btn-success btn-block mt-4" href="<%= link %>" download> Download</a>
-        <a class="btn btn-danger btn-block mt-4 btn-lg" onClick = <% fn() %>> Refresh </a>
+        <a class="btn btn-success btn-block mt-4" href="<%= info.link %>" download> Download</a>
+        <a class="btn btn-danger btn-block mt-4 btn-lg" onClick =" <% fn() %> "> Refresh </a>
       </div>
     </div>
   </div>
