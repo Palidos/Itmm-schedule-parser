@@ -50,7 +50,7 @@ function getLastDate() {
 }
 
 
-app.locals.fn = function checkSchedule() {
+app.locals.check = function checkSchedule() {
   const lastUpdateDate = getLastDate();
   getCurrentDate().then((info)=> {
     app.locals.info = info;
@@ -73,5 +73,5 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.locals.fn();
+app.locals.check();
 
